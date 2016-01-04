@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <title>Curso Angular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="CtrlApp">
+        <input type="text" ng-model="nome">
+        <h1>{{nome}} - {{idade}}, {{cidade}}</h1>
+    </div>
+
+    <script>
+        var myApp = angular.module('app',[]);
+        myApp.controller('CtrlApp',['$scope',function($scope){
+            $scope.nome = 'Jorge';
+            $scope.idade = 24;
+            $scope.cidade = "Itajubá";
+
+            $scope.$watch('nome',function(){
+                console.log('Oi '+$scope.nome);
+            });
+        }]);
+
+    </script>
+</body>
+</html>
